@@ -1,8 +1,16 @@
-export default function SearchBox() {
+import { useId } from "react";
+
+export default function SearchBox({ filter, onFilter }) {
+  const searchId = useId();
   return (
     <div>
-      <label></label>
-      <input type="name"></input>
+      <label htmlFor={searchId}>Find contacts by name</label>
+      <input
+        type="name"
+        id={searchId}
+        value={filter}
+        onChange={(e) => onFilter(e.target.value)}
+      ></input>
     </div>
   );
 }
